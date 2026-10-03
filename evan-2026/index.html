@@ -315,8 +315,8 @@ const HATS=[
     add(g,new T.SphereGeometry(.22,12,10),c,.15,4.7,-.35);add(g,new T.SphereGeometry(.18,12,10),c,-.25,4.62,-.2);return g}},
   {n:'Einstein hair',b(){const g=new T.Group(),c=0xf4f4f4,m=mat(c),up=new T.Vector3(0,1,0);ring(g,c,.64,3.95,4.5,2.4);capTop(g,c,.64,4.5,.45);
     const spike=(a,tilt,y,r,len,w)=>{const d=new T.Vector3(Math.sin(a)*Math.cos(tilt),Math.sin(tilt),Math.cos(a)*Math.cos(tilt)),k=add(g,new T.ConeGeometry(w,len,8),m,Math.sin(a)*r+d.x*len/2,y+d.y*len/2,Math.cos(a)*r+d.z*len/2);k.quaternion.setFromUnitVectors(up,d)};
-    for(let d=55;d<=305;d+=25){const a=d*Math.PI/180,j=(d/25)%2;spike(a,.15+j*.25,4.1+j*.12,.6,.55+j*.15,.13);spike(a+.2,.6+j*.2,4.42,.55,.5,.12)}
-    [[0,1.2],[2.1,1.1],[4.2,1.15],[1,.95],[3.1,.9],[5.2,.95]].forEach(([a,t])=>spike(a,t,4.68,.3,.45,.11));return g}}
+    for(let d=50;d<=310;d+=20){const a=d*Math.PI/180,j=(d/20)%2;spike(a,.1+j*.3,4.05+j*.14,.6,.7+j*.2,.14);spike(a+.17,.55+j*.25,4.4,.55,.65,.13)}
+    for(let i=0;i<10;i++)spike(i*.628+.3,.85+(i%3)*.15,4.66,.32,.6,.12);return g}}
 ];
 
 /* ---------- things to hold ---------- */
