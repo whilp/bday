@@ -518,11 +518,10 @@ canvas.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-las
 
 /* ---------- the walk ---------- */
 let mode='edit', ph=0, tMode=0;
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function setMode(m){mode=m;tMode=0}
 $('go').onclick=()=>{if(mode!=='edit')return;buildStore();stage.classList.add('away');
   fig.rotation.y=((fig.rotation.y+Math.PI)%(2*Math.PI)+2*Math.PI)%(2*Math.PI)-Math.PI;toast('Off to '+PARTY.kid+"'s party!");
-  if(reduce){fig.position.x=STOP_X;camX=STORE_X;setMode('arrive')}else setMode('turn')};
+  setMode('turn')};
 function partyCam(){const t=Math.tan(cam.fov*Math.PI/360),D=Math.max(17.4,5.4/(t*cam.aspect)-3.5);tgtX=STORE_X;tgtK=D/baseDist;tgtLook=13.7-(D+3.5)*t}
 function arrive(){drawFacade();document.body.classList.add('party');
   confetti.forEach(m=>{m.visible=true;m.position.set(fig.position.x+(Math.random()-.5)*9,8+Math.random()*7,(Math.random()-.5)*3);m.v=1.5+Math.random()*2;m.s=Math.random()*6})}
@@ -581,11 +580,11 @@ function frame(){requestAnimationFrame(frame);const dt=Math.min(clock.getDelta()
     if(tMode>.6){fig.rotation.y=0;legL.rotation.x=legR.rotation.x=0;setMode('party');arrive()}}
   else if(mode==='party'){partyCam();if(!drag){fig.rotation.y+=spinV;spinV*=.93;
       if(Math.abs(spinV)<.01&&dancePose(tMode,now).move!=='spin'){const tg=Math.round(fig.rotation.y/(2*Math.PI))*2*Math.PI;fig.rotation.y+=(tg-fig.rotation.y)*Math.min(1,dt*4)}}
-    if(!reduce){const d=dancePose(tMode,now);aL=d.aL;aR=d.aR;zL=d.zL;zR=d.zR;hd=d.hd;sw=d.sw;
+    {const d=dancePose(tMode,now);aL=d.aL;aR=d.aR;zL=d.zL;zR=d.zR;hd=d.hd;sw=d.sw;
       const lf=Math.min(1,dt*10);fig.position.y+=(d.y-fig.position.y)*lf;fig.position.x+=(STOP_X+d.x-fig.position.x)*lf;
       legL.rotation.x+=(d.lL-legL.rotation.x)*lf;legR.rotation.x+=(d.lR-legR.rotation.x)*lf;
       if(d.move==='spin'){const u0=(tMode-dt)%MOVE_T/MOVE_T,u1=tMode%MOVE_T/MOVE_T;if(u1>u0)fig.rotation.y+=(smooth(u1)-smooth(u0))*Math.PI*2}}
-    confetti.forEach(m=>{if(!m.visible)return;m.position.y-=m.v*dt;m.rotation.x+=dt*m.s;m.rotation.z+=dt*m.s*.7;if(m.position.y<0)m.position.y=reduce?-5:14})}
+    confetti.forEach(m=>{if(!m.visible)return;m.position.y-=m.v*dt;m.rotation.x+=dt*m.s;m.rotation.z+=dt*m.s*.7;if(m.position.y<0)m.position.y=14})}
   armL.rotation.x+=(aL-armL.rotation.x)*Math.min(1,dt*12);armR.rotation.x+=(aR-armR.rotation.x)*Math.min(1,dt*12);
   {const f=Math.min(1,dt*10);armL.rotation.z+=(zL-armL.rotation.z)*f;armR.rotation.z+=(zR-armR.rotation.z)*f;
    head.rotation.y+=(Math.PI+hd-head.rotation.y)*f;hatG.rotation.y=head.rotation.y-Math.PI;fig.rotation.z+=(sw-fig.rotation.z)*f}
