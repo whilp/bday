@@ -214,7 +214,8 @@ const FACES=[
   {n:'Freckles',d(c){eyes(c);c.strokeStyle='#111';c.lineWidth=5;c.lineCap='round';[-1,1].forEach(s=>{c.beginPath();c.moveTo(512+s*68,90);c.lineTo(512+s*84,78);c.moveTo(512+s*60,86);c.lineTo(512+s*68,72);c.stroke()});
     c.fillStyle='#c97a00';[[-80,140],[-64,150],[-90,156],[80,140],[64,150],[90,156]].forEach(p=>{c.beginPath();c.arc(512+p[0],p[1],5,0,7);c.fill()});smile(c)}},
   {n:'Safety goggles',d(c){R(c,'#3a4252',0,96,1024,18);[-56,56].forEach(d=>{c.fillStyle='#d8f3ff';c.strokeStyle='#3a4252';c.lineWidth=9;c.beginPath();c.arc(512+d,105,38,0,7);c.fill();c.stroke()});eyes(c);
-    c.fillStyle='#111';c.beginPath();c.arc(512,165,46,0,Math.PI);c.fill();c.fillStyle='#fff';c.fillRect(476,165,72,12)}}
+    c.fillStyle='#111';c.beginPath();c.arc(512,165,46,0,Math.PI);c.fill();c.fillStyle='#fff';c.fillRect(476,165,72,12)}},
+  {n:'Normal',d(c){eyes(c);c.strokeStyle='#111';c.lineWidth=9;c.lineCap='round';c.beginPath();c.moveTo(472,165);c.lineTo(552,165);c.stroke()}},
 ];
 
 /* ---------- shirts (256x256 front) ---------- */
