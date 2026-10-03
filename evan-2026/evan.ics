@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//whilp//bday//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:evan-7th-birthday-2026@whilp.github.io
+DTSTAMP:20261003T000000Z
+DTSTART:20261101T230000Z
+DTEND:20261102T003000Z
+SUMMARY:Evan's 7th birthday party
+LOCATION:Bricks & Minifigs Portland\, 3040 NE Sandy Blvd\, Portland\, OR
+DESCRIPTION:Drop off at 3\, pick up at 4:30 sharp.\nhttps://whilp.github.io/bday/evan-2026/
+URL:https://whilp.github.io/bday/evan-2026/
+END:VEVENT
+END:VCALENDAR
